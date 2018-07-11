@@ -18,7 +18,7 @@ import micro.book.socialmultiapp.repository.MultiplicationResultAttemptRepositor
 import micro.book.socialmultiapp.repository.UserRepository;
 
 @Service
-final class MultiplicationServiceImpl implements MultiplicationService {
+public class MultiplicationServiceImpl implements MultiplicationService {
 
     private RandomGeneratorService randomGeneratorService;
     private MultiplicationResultAttemptRepository attemptRepository;

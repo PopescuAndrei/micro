@@ -3,7 +3,9 @@ package micro.book.socialmultiapp.event;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EventDispatcher {
 
 	private RabbitTemplate rabbitTemplate;
@@ -22,7 +24,11 @@ public class EventDispatcher {
 	}
 	
 	public void send(final MultiplicationSolvedEvent multiplicationSolvedEvent) {
-		rabbitTemplate.convertAndSend(multiplicationExchange, multiplicationSolvedRoutingKey, multiplicationSolvedEvent);
+		rabbitTemplate.convertAndSend(
+				multiplicationExchange, 
+				multiplicationSolvedRoutingKey, 
+				multiplicationSolvedEvent
+		);
 	}
 	
 	
